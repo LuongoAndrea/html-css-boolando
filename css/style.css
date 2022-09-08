@@ -1,5 +1,5 @@
 :root{
-    --arancione: rgb(255, 145, 0);
+    --arancione: rgb(255, 136, 0);
     --nero:black;
     --bianco:white;
     --altezzaimg: 500px;
@@ -13,15 +13,26 @@
     box-sizing: border-box;
 }
 .container{
-    width: 80%;
+    max-width: 1170px;
     margin: auto;
+}
+.flexbox{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
 }
 header{
     background-color: var(--arancione);
+    position: fixed;
+    z-index: 10000;
+    top: 0;
+    left: 0;
+    width: 100%;
+
 }
 nav{
-    position: static;
-    height: 50px;
+    height: 70px;
 }
 ul{
     display: flex;
@@ -46,69 +57,86 @@ nav img{
     width: 150px;
 }
 /* inizio main  */
-main.fixed{
-    position: fixed;
+main.container{
+    max-width: 1170px;
+    margin: 100px auto;
+    
+    
+
 }
-section{
-    margin: 20px 0;
+article{
+    /* flex-basis: calc((100% - 20px) / 3); */
+    width: calc((100% - 20px) / 3);
+    padding: 10px;
 }
-section.flex{
-    display: flex;
-    justify-content: space-around;
+.image-box{
+    position: relative;
 }
-section div.sss{
-    height: 555px;
-    width: 350px;
+.image-box img{
+    width: 100%;
+    cursor: pointer;
 }
-div.card{
-    position: fixed;
-    height: var(--altezzaimg);
+.first{
+    display: inline-block;
 }
-div.immagine{
-    height: var(--altezzaimg);
-    width: var(--widthdiv);
+.second{
+    display: none;
 }
-div.card div img{
-    height: var(--altezzaimg);
+/* scambio immagine */
+.image-box:hover .first{
+    display: none;
 }
-div.card div img:first-of-type{
-    position: absolute;
-    z-index: -10;
+.image-box:hover .second{
+    display: inline-block;
 }
-div.card div img:last-of-type:hover{
-    position: absolute;
-    z-index: -20;
+article div:first-of-type{
+    color: white;
 }
-div.heart{
+/* cuoricino */
+.heart{
     position: absolute;
     top: 20px;
-    right: 0px;
-    z-index: 20;
-    font-size: 30px;
-    padding: 10px 15px;
-    background-color: var(--bianco);
-    
+    right: 0;
+    width: 40px;
+    height: 30px;
+    background-color: white;
+    text-align: center;
+    padding: 5px 0;
+    color: black;
 }
-div.tag{
-    position: absolute;
-    bottom: 100px;
-    left: 0px;
-    z-index: 20;
+.heart:hover{
+    color: red;
 }
-span.sostenibilita{
-    background-color: green;
-    padding: 5px;
-    color: var(--bianco);
+.sconto, .sostenibilita{
+    padding: 10px 5px;
+    text-align: center;
 }
-span.sconto{
+.sconto{
     background-color: red;
-    padding: 5px;
-    color:var(--bianco);
+    position: absolute;
+    bottom: 20px;
+    left: 0;
 }
-p{
+.sostenibilita{
+    background-color: green;
+    position: absolute;
+    bottom: 20px;
+    left: 50px;
+    /* scroll-behavior: smooth; */
+}
+article div:last-of-type h3{
     text-transform: uppercase;
 }
+article div:last-of-type span:nth-child(3){
+    color: red;
+}
+
+/* inizio footer */
 footer{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
     background-color: var(--nero);
     color: var(--bianco);
     height: 100px;
